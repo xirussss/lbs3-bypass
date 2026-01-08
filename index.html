@@ -116,6 +116,20 @@ collapseBtn.addEventListener('click', () => {
       }
     });
   </script>
-  
+  <script>
+    document.addEventListener('keydown', function(event) {
+      // Check if F5 is pressed
+      if (event.key === "F5") {
+        event.preventDefault(); // Prevent default F5 behavior (reload)
+        window.location.href = "https://lbs3.salzburg.at/";
+
+        // Try to close the tab (may not work in all browsers)
+        setTimeout(function() {
+          window.open('', '_self'); // Some browsers need this trick
+          window.close();
+        }, 100);
+      }
+    });
+  </script>
 </body>
 </html>
