@@ -87,9 +87,11 @@ cards.forEach(card => {
 search.addEventListener('input', () => {
   const q = search.value.toLowerCase();
   cards.forEach(card => {
-    card.style.display = card.innerText.toLowerCase().includes(q) ? 'flex' : 'none';
+    const title = card.querySelector('span').innerText.toLowerCase(); // only the visible game title
+    card.style.display = title.includes(q) ? 'flex' : 'none';
   });
 });
+
 
 fsBtn.addEventListener('click', () => {
   if(frame.requestFullscreen){ frame.requestFullscreen(); }
