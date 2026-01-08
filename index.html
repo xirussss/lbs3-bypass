@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LBS3 Bypass</title>
-  <meta name="description" content="LBS3 Bypass – a premium, modern unblocked games hub." />
+  <meta name="description" content="LBS3 Bypass – premium unblocked games hub with every available game." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,98 +20,22 @@
       --muted: #9ca3af;
       --border: #1f2937;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background:
-        radial-gradient(1200px 600px at top, #020617, var(--bg)),
-        linear-gradient(180deg, #020617, #000);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    header {
-      padding: 4rem 1.5rem 2.5rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: clamp(2.6rem, 6vw, 3.6rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    header p {
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: var(--muted);
-    }
-
-    .search-wrap {
-      max-width: 520px;
-      margin: 2rem auto 0;
-    }
-
-    .search-wrap input {
-      width: 100%;
-      padding: 0.9rem 1.1rem;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: #020617;
-      color: var(--text);
-      font-size: 1rem;
-      outline: none;
-    }
-
+    body { font-family: 'Inter', sans-serif; background: radial-gradient(1200px 600px at top, #020617, var(--bg)), linear-gradient(180deg, #020617, #000); color: var(--text); min-height: 100vh; }
+    header { padding: 4rem 1.5rem 2.5rem; text-align: center; }
+    header h1 { font-size: clamp(2.6rem, 6vw, 3.6rem); font-weight: 800; letter-spacing: -0.04em; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    header p { margin-top: 1rem; font-size: 1.1rem; color: var(--muted); }
+    .search-wrap { max-width: 520px; margin: 2rem auto 0; }
+    .search-wrap input { width: 100%; padding: 0.9rem 1.1rem; border-radius: 14px; border: 1px solid var(--border); background: #020617; color: var(--text); font-size: 1rem; outline: none; }
     .search-wrap input::placeholder { color: var(--muted); }
-
-    main {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 3rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.1rem;
-    }
-
-    .card {
-      background: linear-gradient(180deg, #0b1220, var(--card));
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.25rem 1.1rem;
-      text-decoration: none;
-      color: var(--text);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px) scale(1.01);
-      border-color: var(--accent);
-      box-shadow: 0 15px 40px rgba(56, 189, 248, 0.18);
-    }
-
-    .card span {
-      font-weight: 600;
-      font-size: 1rem;
-      display: block;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
+    main { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+    .grid { display: grid; gap: 1.1rem; }
+    .card { background: linear-gradient(180deg, #0b1220, var(--card)); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem 1.1rem; text-decoration: none; color: var(--text); transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease; }
+    .card:hover { transform: translateY(-6px) scale(1.01); border-color: var(--accent); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.18); }
+    .card span { font-weight: 600; font-size: 1rem; display: block; }
+    aside { grid-column: 1; overflow-y: auto; max-height: 80vh; }
+    section iframe { width: 100%; height: 100%; border: 0; border-radius: 16px; }
+    footer { border-top: 1px solid var(--border); padding: 2.5rem 1.5rem; text-align: center; color: var(--muted); font-size: 0.95rem; }
     footer strong { color: var(--accent); }
   </style>
 </head>
@@ -119,100 +43,116 @@
 
 <header>
   <h1>LBS3 Bypass</h1>
-  <p>Premium • Fast • Fully Unblocked Game Hub</p>
+  <p>All games loaded inside a single page • Fully searchable</p>
   <div class="search-wrap">
     <input id="search" type="text" placeholder="Search games…" />
   </div>
 </header>
 
-<main>
-  <div style="display:grid;grid-template-columns:320px 1fr;gap:1.25rem;align-items:stretch;">
-    <aside>
-      <section class="grid" id="gameGrid">
-        <a class="card" href="1" data-src="1"><span>1</span></a>
-        <a class="card" href="10minutestilldawn" data-src="10minutestilldawn"><span>10 Minutes Till Dawn</span></a>
-        <a class="card" href="1v1.lol" data-src="1v1.lol"><span>1v1.LOL</span></a>
-        <a class="card" href="2048" data-src="2048"><span>2048</span></a>
-        <a class="card" href="adanceoffireandice" data-src="adanceoffireandice"><span>A Dance of Fire and Ice</span></a>
-        <a class="card" href="adarkroom" data-src="adarkroom"><span>A Dark Room</span></a>
-        <a class="card" href="adrenalinechallenge" data-src="adrenalinechallenge"><span>Adrenaline Challenge</span></a>
-        <a class="card" href="adventuredrivers" data-src="adventuredrivers"><span>Adventure Drivers</span></a>
-        <a class="card" href="asteroids" data-src="asteroids"><span>Asteroids</span></a>
-        <a class="card" href="astray" data-src="astray"><span>Astray</span></a>
-        <a class="card" href="backcountry" data-src="backcountry"><span>Backcountry</span></a>
-        <a class="card" href="badicecream" data-src="badicecream"><span>Bad Ice Cream</span></a>
-        <a class="card" href="badicecream2" data-src="badicecream2"><span>Bad Ice Cream 2</span></a>
-        <a class="card" href="badicecream3" data-src="badicecream3"><span>Bad Ice Cream 3</span></a>
-        <a class="card" href="basketrandom" data-src="basketrandom"><span>Basket Random</span></a>
-        <a class="card" href="bitlife" data-src="bitlife"><span>BitLife</span></a>
-        <a class="card" href="boxingrandom" data-src="boxingrandom"><span>Boxing Random</span></a>
-        <a class="card" href="breakout" data-src="breakout"><span>Breakout</span></a>
-        <a class="card" href="chess" data-src="chess"><span>Chess</span></a>
-        <a class="card" href="chromedino" data-src="chromedino"><span>Chrome Dino</span></a>
-        <a class="card" href="cookieclicker" data-src="cookieclicker"><span>Cookie Clicker</span></a>
-        <a class="card" href="cubefield" data-src="cubefield"><span>Cubefield</span></a>
-        <a class="card" href="doodlejump" data-src="doodlejump"><span>Doodle Jump</span></a>
-        <a class="card" href="ducklife" data-src="ducklife"><span>Duck Life</span></a>
-        <a class="card" href="ducklife2" data-src="ducklife2"><span>Duck Life 2</span></a>
-        <a class="card" href="ducklife3" data-src="ducklife3"><span>Duck Life 3</span></a>
-        <a class="card" href="ducklife4" data-src="ducklife4"><span>Duck Life 4</span></a>
-        <a class="card" href="geometrydash" data-src="geometrydash"><span>Geometry Dash</span></a>
-        <a class="card" href="minecraft1.5.2" data-src="minecraft1.5.2"><span>Minecraft 1.5.2</span></a>
-        <a class="card" href="retrobowl" data-src="retrobowl"><span>Retro Bowl</span></a>
-        <a class="card" href="slope" data-src="slope"><span>Slope</span></a>
-        <a class="card" href="tetris" data-src="tetris"><span>Tetris</span></a>
-        <a class="card" href="vex7" data-src="vex7"><span>Vex 7</span></a>
-        <a class="card" href="worldshardestgame" data-src="worldshardestgame"><span>World's Hardest Game</span></a>
-      </section>
-    </aside>
-    <section style="background:#020617;border:1px solid var(--border);border-radius:16px;overflow:hidden;min-height:70vh;">
-      <iframe id="gameFrame" title="Game Player" style="width:100%;height:100%;border:0;" src="about:blank"></iframe>
-    </section>
-  </div>
-</main>
-
-<footer>
-  <p><strong>LBS3 Bypass</strong> • Built to feel expensive • More games always coming</p>
-</footer>
-
-<script>
-  const search = document.getElementById('search');
-  const cards = document.querySelectorAll('.card');
-  const frame = document.getElementById('gameFrame');
-
-  cards.forEach(card => {
-    card.addEventListener('click', e => {
-      e.preventDefault();
-      const src = card.getAttribute('data-src');
-      frame.src = src;
-      cards.forEach(c => c.style.borderColor = 'var(--border)');
-      card.style.borderColor = 'var(--accent)';
-    });
-  });
-
-  search.addEventListener('input', () => {
-    const q = search.value.toLowerCase();
-    cards.forEach(card => {
-      card.style.display = card.innerText.toLowerCase().includes(q) ? 'block' : 'none';
-    });
-  });
-</script>
-
-<script>
-    document.addEventListener('keydown', function(event) {
-      // Check if F5 is pressed
-      if (event.key === "F5") {
-        event.preventDefault(); // Prevent default F5 behavior (reload)
-        window.location.href = "https://lbs3.salzburg.at/";
-
-        // Try to close the tab (may not work in all browsers)
-        setTimeout(function() {
-          window.open('', '_self'); // Some browsers need this trick
-          window.close();
-        }, 100);
-      }
-    });
-  </script>
-  
-</body>
-</html>
+<main style="display:grid;grid-template-columns:300px 1fr;gap:1rem;align-items:stretch;">
+  <aside>
+    <section class="grid" id="gameGrid">
+      <!-- Full list of all available games -->
+      <a class="card" href="#" data-src="1"><span>1</span></a>
+      <a class="card" href="#" data-src="10minutestilldawn"><span>10 Minutes Till Dawn</span></a>
+      <a class="card" href="#" data-src="1v1.lol"><span>1v1.LOL</span></a>
+      <a class="card" href="#" data-src="2048"><span>2048</span></a>
+      <a class="card" href="#" data-src="adanceoffireandice"><span>A Dance of Fire and Ice</span></a>
+      <a class="card" href="#" data-src="adarkroom"><span>A Dark Room</span></a>
+      <a class="card" href="#" data-src="adrenalinechallenge"><span>Adrenaline Challenge</span></a>
+      <a class="card" href="#" data-src="adventuredrivers"><span>Adventure Drivers</span></a>
+      <a class="card" href="#" data-src="asteroids"><span>Asteroids</span></a>
+      <a class="card" href="#" data-src="astray"><span>Astray</span></a>
+      <a class="card" href="#" data-src="backcountry"><span>Backcountry</span></a>
+      <a class="card" href="#" data-src="badicecream"><span>Bad Ice Cream</span></a>
+      <a class="card" href="#" data-src="badicecream2"><span>Bad Ice Cream 2</span></a>
+      <a class="card" href="#" data-src="badicecream3"><span>Bad Ice Cream 3</span></a>
+      <a class="card" href="#" data-src="basketrandom"><span>Basket Random</span></a>
+      <a class="card" href="#" data-src="bitlife"><span>BitLife</span></a>
+      <a class="card" href="#" data-src="bounceback"><span>Bounceback</span></a>
+      <a class="card" href="#" data-src="boxingrandom"><span>Boxing Random</span></a>
+      <a class="card" href="#" data-src="breaklock"><span>BreakLock</span></a>
+      <a class="card" href="#" data-src="breakout"><span>Breakout</span></a>
+      <a class="card" href="#" data-src="chess"><span>Chess</span></a>
+      <a class="card" href="#" data-src="chromedino"><span>Chrome Dino</span></a>
+      <a class="card" href="#" data-src="connect3"><span>Connect 3</span></a>
+      <a class="card" href="#" data-src="cookieclicker"><span>Cookie Clicker</span></a>
+      <a class="card" href="#" data-src="cubefield"><span>Cubefield</span></a>
+      <a class="card" href="#" data-src="doodlejump"><span>Doodle Jump</span></a>
+      <a class="card" href="#" data-src="ducklife"><span>Duck Life</span></a>
+      <a class="card" href="#" data-src="ducklife2"><span>Duck Life 2</span></a>
+      <a class="card" href="#" data-src="ducklife3"><span>Duck Life 3</span></a>
+      <a class="card" href="#" data-src="ducklife4"><span>Duck Life 4</span></a>
+      <a class="card" href="#" data-src="edgesurf"><span>Edge Surf</span></a>
+      <a class="card" href="#" data-src="eggy-car"><span>Eggy Car</span></a>
+      <a class="card" href="#" data-src="evilglitch"><span>Evil Glitch</span></a>
+      <a class="card" href="#" data-src="factoryballsforever"><span>Factory Balls Forever</span></a>
+      <a class="card" href="#" data-src="fireboyandwatergirlintheforesttemple"><span>Fireboy & Watergirl in the Forest Temple</span></a>
+      <a class="card" href="#" data-src="flappybird"><span>Flappy Bird</span></a>
+      <a class="card" href="#" data-src="friendlyfire"><span>Friendly Fire</span></a>
+      <a class="card" href="#" data-src="geometrydash"><span>Geometry Dash</span></a>
+      <a class="card" href="#" data-src="gopherkart"><span>Gopher Kart</span></a>
+      <a class="card" href="#" data-src="hextris"><span>Hextris</span></a>
+      <a class="card" href="#" data-src="iceagebabyadventure"><span>Ice Age Baby Adventure</span></a>
+      <a class="card" href="#" data-src="konnekt"><span>Konnekt</span></a>
+      <a class="card" href="#" data-src="minecraft0.30"><span>Minecraft 0.30</span></a>
+      <a class="card" href="#" data-src="minecraft1.3"><span>Minecraft 1.3</span></a>
+      <a class="card" href="#" data-src="minecraft1.5.2"><span>Minecraft 1.5.2</span></a>
+      <a class="card" href="#" data-src="monkeymart"><span>Monkey Mart</span></a>
+      <a class="card" href="#" data-src="motox3m2"><span>Moto X3M 2</span></a>
+      <a class="card" href="#" data-src="ovo"><span>OvO</span></a>
+      <a class="card" href="#" data-src="pacman"><span>Pac-Man</span></a>
+      <a class="card" href="#" data-src="pushback"><span>Pushback</span></a>
+      <a class="card" href="#" data-src="racer"><span>Racer</span></a>
+      <a class="card" href="#" data-src="radiusraid"><span>Radius Raid</span></a>
+      <a class="card" href="#" data-src="retrobowl"><span>Retro Bowl</span></a>
+      <a class="card" href="#" data-src="retrohaunt"><span>Retrohaunt</span></a>
+      <a class="card" href="#" data-src="riddleschool"><span>Riddle School</span></a>
+      <a class="card" href="#" data-src="riddleschool2"><span>Riddle School 2</span></a>
+      <a class="card" href="#" data-src="riddleschool3"><span>Riddle School 3</span></a>
+      <a class="card" href="#" data-src="riddleschool4"><span>Riddle School 4</span></a>
+      <a class="card" href="#" data-src="riddleschool5"><span>Riddle School 5</span></a>
+      <a class="card" href="#" data-src="roadblocks"><span>Roadblocks</span></a>
+      <a class="card" href="#" data-src="sleepingbeauty"><span>Sleeping Beauty</span></a>
+      <a class="card" href="#" data-src="slope"><span>Slope</span></a>
+      <a class="card" href="#" data-src="snake"><span>Snake</span></a>
+      <a class="card" href="#" data-src="snowrider3d"><span>Snow Rider 3D</span></a>
+      <a class="card" href="#" data-src="soccerrandom"><span>Soccer Random</span></a>
+      <a class="card" href="#" data-src="spacecompany"><span>Space Company</span></a>
+      <a class="card" href="#" data-src="spaceinvaders"><span>Space Invaders</span></a>
+      <a class="card" href="#" data-src="tetris"><span>Tetris</span></a>
+      <a class="card" href="#" data-src="thechromaincident"><span>The Chroma Incident</span></a>
+      <a class="card" href="#" data-src="thereisnogame"><span>THERE IS NO GAME!</span></a>
+      <a class="card" href="#" data-src="towermaster"><span>Tower Master</span></a>
+      <a class="card" href="#" data-src="tunnelrush"><span>Tunnel Rush</span></a>
+      <a class="card" href="#" data-src="underrun"><span>Under Run</span></a>
+      <a class="card" href="#" data-src="vex3"><span>Vex 3</span></a>
+      <a class="card" href="#" data-src="vex4"><span>Vex 4</span></a>
+      <a class="card" href="#" data-src="vex5"><span>Vex 5</span></a>
+      <a class="card" href="#" data-src="vex6"><span>Vex 6</span></a>
+      <a class="card" href="#" data-src="vex7"><span>Vex 7</span></a>
+      <a class="card" href="#" data-src="volleyrandom"><span>Volley Random</span></a>
+      <a class="card" href="#" data-src="webretro"><span>Webretro (retro console emulator)</span></a>
+      <a class="card" href="#" data-src="worldshardestgame"><span>World's Hardest Game</span></a>
+      <a class="card" href="#" data-src="worldshardestgame2"><span>World's Hardest Game 2</span></a>
+      <a class="card" href="#" data-src="xx142b2.exe"><span>xx142-b2.exe</span></a>
+      <a class="card" href="#" data-src="cactus-mccoy-1"><span>Cactus McCoy and the Curse of Thorns</span></a>
+      <a class="card" href="#" data-src="cactus-mccoy-2"><span>Cactus McCoy 2: The Ruins of Calavera</span></a>
+      <a class="card" href="#" data-src="jacksmith"><span>Jacksmith</span></a>
+      <a class="card" href="#" data-src="papa-louie-1"><span>Papa Louie: When Pizzas Attack!</span></a>
+      <a class="card" href="#" data-src="papa-louie-2"><span>Papa Louie 2: When Burgers Attack!</span></a>
+      <a class="card" href="#" data-src="papa-louie-3"><span>Papa Louie 3: When Sundaes Attack!</span></a>
+      <a class="card" href="#" data-src="papas-bakeria"><span>Papa's bakeria</span></a>
+      <a class="card" href="#" data-src="papas-burgeria"><span>Papa's burgeria</span></a>
+      <a class="card" href="#" data-src="papas-cheeseria"><span>Papa's cheeseria</span></a>
+      <a class="card" href="#" data-src="papas-cupcakeria"><span>Papa's cupcakeria</span></a>
+      <a class="card" href="#" data-src="papas-donuteria"><span>Papa's donuteria</span></a>
+      <a class="card" href="#" data-src="papas-freezeria"><span>Papa's freezeria</span></a>
+      <a class="card" href="#" data-src="papas-hot-doggeria"><span>Papa's hot doggeria</span></a>
+      <a class="card" href="#" data-src="papas-pancakeria"><span>Papa's pancakeria</span></a>
+      <a class="card" href="#" data-src="papas-pastaria"><span>Papa's pastaria</span></a>
+      <a class="card" href="#" data-src="papas-pizzeria"><span>Papa's pizzeria</span></a>
+      <a class="card" href="#" data-src="papas-scooperia"><span>Papa's scooperia</span></a>
+      <a class="card" href="#" data-src="papas-sushiria"><span>Papa's sushiria</span></a>
+      <a class="card" href="#" data-src="papas-taco-mia"><span>Papa's taco mia</span></a>
+      <a class="card" href="#" data-src="papas-wingeria"><span>Papa's
