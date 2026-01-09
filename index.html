@@ -21,101 +21,218 @@
   --border: #1f2937;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', sans-serif; background: radial-gradient(1200px 600px at top, #020617, var(--bg)), linear-gradient(180deg, #020617, #000); color: var(--text); min-height: 100vh; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(1200px 600px at top, #020617, var(--bg)), linear-gradient(180deg, #020617, #000);
+  color: var(--text);
+  min-height: 100vh;
+}
 header { padding: 3rem 1.5rem 2rem; text-align: center; }
-header h1 { font-size: clamp(2.6rem, 6vw, 3.6rem); font-weight: 800; letter-spacing: -0.04em; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+header h1 {
+  font-size: clamp(2.6rem, 6vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 header p { margin-top: 0.8rem; font-size: 1.1rem; color: var(--muted); }
 .search-wrap { max-width: 520px; margin: 1.5rem auto 0; }
-.search-wrap input { width: 100%; padding: 0.9rem 1.1rem; border-radius: 14px; border: 1px solid var(--border); background: #020617; color: var(--text); font-size: 1rem; outline: none; }
-.search-wrap input::placeholder { color: var(--muted); }
-main { display: grid; grid-template-columns: 300px 1fr; gap: 1rem; max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
-aside { background: var(--card); border-radius: 16px; padding: 1rem; overflow-y: auto; max-height: 80vh; transition: transform 0.3s ease; }
+.search-wrap input {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #020617;
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+}
+main {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+aside {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: 80vh;
+  transition: transform 0.3s ease;
+}
 aside.collapsed { transform: translateX(-320px); }
-.collapse-btn { display: none; position: fixed; top: 1rem; left: 1rem; background: var(--accent); color: #000; border: none; padding: 0.5rem 0.8rem; border-radius: 8px; cursor: pointer; font-weight: 700; z-index: 999; }
-@media(max-width:900px){ .collapse-btn{ display:block; } aside{ position: fixed; top:0; left:0; bottom:0; width:300px; z-index:998; } main{ grid-template-columns:1fr; } }
-section#gameFrameContainer{ background:#020617; border:1px solid var(--border); border-radius:16px; overflow:hidden; position:relative; }
-section#gameFrameContainer iframe{ width:100%; height:80vh; border:0; border-radius:16px; display:block; }
-.fullscreen-btn{ position:absolute; top:0.5rem; right:0.5rem; background: var(--accent); color:#000; border:none; border-radius:8px; padding:0.5rem 0.8rem; cursor:pointer; font-weight:700; z-index:10; }
+.collapse-btn {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  z-index: 999;
+}
+@media(max-width:900px){
+  .collapse-btn{ display:block; }
+  aside{ position: fixed; top:0; left:0; bottom:0; width:300px; z-index:998; }
+  main{ grid-template-columns:1fr; }
+}
 .grid { display:grid; gap:0.8rem; }
-.card { display:flex; flex-direction:column; align-items:center; background: linear-gradient(180deg, #0b1220, var(--card)); border:1px solid var(--border); border-radius:14px; padding:0.8rem; text-decoration:none; color:var(--text); transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease; }
-.card img{ width:100%; border-radius:10px; margin-bottom:0.5rem; }
-.card span{ font-weight:600; font-size:0.95rem; text-align:center; }
-.card:hover{ transform: translateY(-5px) scale(1.02); border-color: var(--accent); box-shadow:0 15px 40px rgba(56,189,248,0.18); }
+.card {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background: linear-gradient(180deg, #0b1220, var(--card));
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:0.8rem;
+  text-decoration:none;
+  color:var(--text);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.card img {
+  width:100%;
+  height:110px;
+  object-fit:contain;
+  border-radius:10px;
+  margin-bottom:0.5rem;
+}
+.card span { font-weight:600; font-size:0.95rem; text-align:center; }
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--accent);
+  box-shadow:0 15px 40px rgba(56,189,248,0.18);
+}
+section#gameFrameContainer {
+  background:#020617;
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  position:relative;
+}
+section#gameFrameContainer iframe {
+  width:100%;
+  height:80vh;
+  border:0;
+  border-radius:16px;
+}
+.fullscreen-btn {
+  position:absolute;
+  top:0.5rem;
+  right:0.5rem;
+  background: var(--accent);
+  color:#000;
+  border:none;
+  border-radius:8px;
+  padding:0.5rem 0.8rem;
+  cursor:pointer;
+  font-weight:700;
+  z-index:10;
+}
 </style>
 </head>
+
 <body>
 <header>
 <h1>LBS3 Bypass</h1>
-<p>All games playable in-page • Search, browse, fullscreen</p>
-<div class="search-wrap"><input id="search" type="text" placeholder="Search games…"></div>
+<p>All games playable in‑page • Search, browse, fullscreen</p>
+<div class="search-wrap">
+  <input id="search" type="text" placeholder="Search games…">
+</div>
 </header>
+
 <button class="collapse-btn" id="collapseBtn">☰ Games</button>
+
 <main>
 <aside id="sidebar">
 <section class="grid" id="gameGrid">
-<!-- Example cards with thumbnails -->
-<a class="card" href="#" data-src="geometrydash"><img src="thumbnails/geometrydash.png" alt="Geometry Dash"><span>Geometry Dash</span></a>
-<a class="card" href="#" data-src="ducklife"><img src="thumbnails/ducklife.png" alt="Duck Life"><span>Duck Life</span></a>
-<a class="card" href="#" data-src="1v1.lol"><img src="thumbnails/1v1.png" alt="1v1.LOL"><span>1v1.LOL</span></a>
-<!-- Add the rest of the full game list with thumbnails similarly -->
+<!-- dynamically filled -->
 </section>
 </aside>
+
 <section id="gameFrameContainer">
 <button class="fullscreen-btn" id="fsBtn">Fullscreen</button>
-<iframe id="gameFrame" src="about:blank" title="Game Player"></iframe>
+<iframe id="gameFrame" src="about:blank"></iframe>
 </section>
 </main>
-<footer style="text-align:center; padding:2rem 1rem; color:var(--muted);">&copy; <strong>LBS3 Bypass</strong> • Premium unblocked games hub</footer>
+
+<footer style="text-align:center; padding:2rem 1rem; color:var(--muted);">
+&copy; <strong>LBS3 Bypass</strong> • Premium unblocked games hub
+</footer>
+
 <script>
+const gameGrid = document.getElementById('gameGrid');
 const search = document.getElementById('search');
-const cards = document.querySelectorAll('.card');
 const frame = document.getElementById('gameFrame');
 const fsBtn = document.getElementById('fsBtn');
 const sidebar = document.getElementById('sidebar');
 const collapseBtn = document.getElementById('collapseBtn');
 
-cards.forEach(card => {
-  card.addEventListener('click', e => {
-    e.preventDefault();
-    const src = card.dataset.src;
-    frame.src = src;
-    cards.forEach(c => c.style.borderColor = 'var(--border)');
-    card.style.borderColor = 'var(--accent)';
+let cards = [];
+
+fetch('games.json')
+  .then(res => res.json())
+  .then(games => {
+    games.forEach(game => {
+      const card = document.createElement('a');
+      card.className = 'card';
+      card.href = '#';
+      card.dataset.src = game.id;
+
+      const img = document.createElement('img');
+      img.src = `thumbnails/${game.thumb}`;
+      img.alt = game.name;
+
+      const span = document.createElement('span');
+      span.textContent = game.name;
+
+      card.append(img, span);
+      gameGrid.appendChild(card);
+
+      card.addEventListener('click', e => {
+        e.preventDefault();
+        frame.src = game.id;
+        cards.forEach(c => c.style.borderColor = 'var(--border)');
+        card.style.borderColor = 'var(--accent)';
+      });
+
+      cards.push(card);
+    });
   });
-});
 
 search.addEventListener('input', () => {
   const q = search.value.toLowerCase();
   cards.forEach(card => {
-    const title = card.querySelector('span').innerText.toLowerCase(); // only the visible game title
-    card.style.display = title.includes(q) ? 'flex' : 'none';
+    card.style.display =
+      card.querySelector('span').textContent.toLowerCase().includes(q)
+      ? 'flex'
+      : 'none';
   });
 });
 
-
 fsBtn.addEventListener('click', () => {
-  if(frame.requestFullscreen){ frame.requestFullscreen(); }
-  else if(frame.webkitRequestFullscreen){ frame.webkitRequestFullscreen(); }
+  frame.requestFullscreen?.() ||
+  frame.webkitRequestFullscreen?.();
 });
 
 collapseBtn.addEventListener('click', () => {
   sidebar.classList.toggle('collapsed');
 });
-</script>
-  <script>
-    document.addEventListener('keydown', function(event) {
-      // Check if F5 is pressed
-      if (event.key === "F5") {
-        event.preventDefault(); // Prevent default F5 behavior (reload)
-        window.location.href = "https://lbs3.salzburg.at/";
 
-        // Try to close the tab (may not work in all browsers)
-        setTimeout(function() {
-          window.open('', '_self'); // Some browsers need this trick
-          window.close();
-        }, 100);
-      }
-    });
-  </script>
+document.addEventListener('keydown', e => {
+  if (e.key === 'F5') {
+    e.preventDefault();
+    window.location.href = 'https://lbs3.salzburg.at/';
+  }
+});
+</script>
+
 </body>
 </html>
