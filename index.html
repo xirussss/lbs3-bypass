@@ -179,9 +179,34 @@ function loadGame(id){
 search.addEventListener('input',()=>loadGames(categoryFilter.value, search.value.toLowerCase()));
 categoryFilter.addEventListener('change',()=>loadGames(categoryFilter.value, search.value.toLowerCase()));
 
-// Fullscreen
-fsBtn.addEventListener('click',()=>{
-  frame.requestFullscreen?.() || frame.webkitRequestFullscreen?.();
+// Fullscreen button
+fsBtn.addEventListener('click', async () => {
+  const container = document.getElementById('gameFrameContainer');
+
+  // Enter fullscreen on container, not iframe
+  if (container.requestFullscreen) await container.requestFullscreen();
+  else if (container.webkitRequestFullscreen) await container.webkitRequestFullscreen();
+
+  // Resize iframe to fill container
+  frame.style.width = '100vw';
+  frame.style.height = '100vh';
+
+  // Focus iframe so keyboard works
+  frame.contentWindow?.focus?.();
+
+  // Optional: keyboard lock (Chrome only)
+  if (navigator.keyboard && navigator.keyboard.lock) {
+    try { await navigator.keyboard.lock(); } 
+    catch(e) { console.warn("Keyboard lock failed:", e); }
+  }
+});
+
+// Resize iframe back when exiting fullscreen
+document.addEventListener('fullscreenchange', () => {
+  if (!document.fullscreenElement) {
+    frame.style.width = '100%';
+    frame.style.height = '80vh';
+  }
 });
 
 // Collapse sidebar
