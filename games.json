@@ -69,6 +69,6 @@
   { "id": "tetris", "name": "Tetris", "thumb": "tetris.png", "category": "Puzzle" },
   { "id": "thereisnogame", "name": "There Is No Game", "thumb": "thereisnogame.png", "category": "Puzzle" },
   { "id": "towermaster", "name": "Tower Master", "thumb": "towermaster.png", "category": "Arcade" },
-  { "id": "ayri", "name": "Kick The Teacher", "thumb": "towermaster.png", "category": "Adventure" },
+  { "id": "KickTheBuddy2-main", "name": "Kick The Teacher", "thumb": "towermaster.png", "category": "Adventure" },
   { "id": "tunnelrush", "name": "Tunnel Rush", "thumb": "tunnelrush.png", "category": "Arcade" }
 ]
