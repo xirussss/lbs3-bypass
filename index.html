@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LBS3 Bypass</title>
-<meta name="description" content="LBS3 Bypass – mit herz gemacht bra.">
+<meta name="description" content="LBS3 Bypass – premium unblocked games hub with all games loaded inside a single page.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,131 +20,43 @@
   --muted: #9ca3af;
   --border: #1f2937;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Inter', sans-serif;
-  background: radial-gradient(1200px 600px at top, #020617, var(--bg)), linear-gradient(180deg, #020617, #000);
-  color: var(--text);
-  min-height: 100vh;
-}
-header { padding: 3rem 1.5rem 2rem; text-align: center; }
-header h1 {
-  font-size: clamp(2.6rem, 6vw, 3.6rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-header p { margin-top: 0.8rem; font-size: 1.1rem; color: var(--muted); }
-.search-wrap { max-width: 520px; margin: 1.5rem auto 0; }
-.search-wrap input {
-  width: 100%;
-  padding: 0.9rem 1.1rem;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: #020617;
-  color: var(--text);
-  font-size: 1rem;
-  outline: none;
-}
-main {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 1rem;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 3rem;
-}
-aside {
-  background: var(--card);
-  border-radius: 16px;
-  padding: 1rem;
-  overflow-y: auto;
-  max-height: 80vh;
-  transition: transform 0.3s ease;
-}
-aside.collapsed { transform: translateX(-320px); }
-.collapse-btn {
-  display: none;
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  background: var(--accent);
-  color: #000;
-  border: none;
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 700;
-  z-index: 999;
-}
-@media(max-width:900px){
-  .collapse-btn{ display:block; }
-  aside{ position: fixed; top:0; left:0; bottom:0; width:300px; z-index:998; }
-  main{ grid-template-columns:1fr; }
-}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Inter',sans-serif; background: radial-gradient(1200px 600px at top, #020617, var(--bg)), linear-gradient(180deg, #020617, #000); color: var(--text); min-height:100vh; }
+header { padding:3rem 1.5rem 2rem; text-align:center; }
+header h1 { font-size:clamp(2.6rem,6vw,3.6rem); font-weight:800; letter-spacing:-0.04em; background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+header p { margin-top:0.8rem; font-size:1.1rem; color:var(--muted); }
+.search-wrap { max-width:520px; margin:1.5rem auto 0; display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; }
+.search-wrap input { flex:1; padding:0.9rem 1.1rem; border-radius:14px; border:1px solid var(--border); background:#020617; color:var(--text); font-size:1rem; outline:none; }
+.search-wrap input::placeholder { color:var(--muted); }
+.search-wrap select { padding:0.9rem 1rem; border-radius:14px; border:1px solid var(--border); background:#020617; color:var(--text); font-size:1rem; outline:none; }
+
+main { display:grid; grid-template-columns:300px 1fr; gap:1rem; max-width:1400px; margin:0 auto; padding:2rem 1.5rem 3rem; }
+aside { background:var(--card); border-radius:16px; padding:1rem; overflow-y:auto; max-height:80vh; transition: transform 0.3s ease; }
+aside.collapsed { transform:translateX(-320px); }
+.collapse-btn { display:none; position:fixed; top:1rem; left:1rem; background:var(--accent); color:#000; border:none; padding:0.5rem 0.8rem; border-radius:8px; cursor:pointer; font-weight:700; z-index:999; }
+@media(max-width:900px){ .collapse-btn{ display:block; } aside{ position:fixed; top:0; left:0; bottom:0; width:300px; z-index:998; } main{ grid-template-columns:1fr; } }
+
 .grid { display:grid; gap:0.8rem; }
-.card {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  background: linear-gradient(180deg, #0b1220, var(--card));
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:0.8rem;
-  text-decoration:none;
-  color:var(--text);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-}
-.card img {
-  width:100%;
-  height:110px;
-  object-fit:contain;
-  border-radius:10px;
-  margin-bottom:0.5rem;
-}
+.card { display:flex; flex-direction:column; align-items:center; background: linear-gradient(180deg,#0b1220,var(--card)); border:1px solid var(--border); border-radius:14px; padding:0.8rem; text-decoration:none; color:var(--text); transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease; }
+.card img { width:100%; height:110px; object-fit:contain; border-radius:10px; margin-bottom:0.5rem; }
 .card span { font-weight:600; font-size:0.95rem; text-align:center; }
-.card:hover {
-  transform: translateY(-5px) scale(1.02);
-  border-color: var(--accent);
-  box-shadow:0 15px 40px rgba(56,189,248,0.18);
-}
-section#gameFrameContainer {
-  background:#020617;
-  border:1px solid var(--border);
-  border-radius:16px;
-  overflow:hidden;
-  position:relative;
-}
-section#gameFrameContainer iframe {
-  width:100%;
-  height:80vh;
-  border:0;
-  border-radius:16px;
-}
-.fullscreen-btn {
-  position:absolute;
-  top:0.5rem;
-  right:0.5rem;
-  background: var(--accent);
-  color:#000;
-  border:none;
-  border-radius:8px;
-  padding:0.5rem 0.8rem;
-  cursor:pointer;
-  font-weight:700;
-  z-index:10;
-}
+.card:hover { transform:translateY(-5px) scale(1.02); border-color:var(--accent); box-shadow:0 15px 40px rgba(56,189,248,0.18); }
+
+section#gameFrameContainer { background:#020617; border:1px solid var(--border); border-radius:16px; overflow:hidden; position:relative; }
+section#gameFrameContainer iframe { width:100%; height:80vh; border:0; border-radius:16px; }
+.fullscreen-btn { position:absolute; top:0.5rem; right:0.5rem; background:var(--accent); color:#000; border:none; border-radius:8px; padding:0.5rem 0.8rem; cursor:pointer; font-weight:700; z-index:10; }
 </style>
 </head>
 
 <body>
 <header>
-<h1>LBS3 Auf Flasche</h1>
-<p>👻 xirussss</p>
+<h1>LBS3 Bypass</h1>
+<p>All games playable in-page • Search, browse, fullscreen</p>
 <div class="search-wrap">
   <input id="search" type="text" placeholder="Search games…">
+  <select id="categoryFilter">
+    <option value="all">All Categories</option>
+  </select>
 </div>
 </header>
 
@@ -152,9 +64,7 @@ section#gameFrameContainer iframe {
 
 <main>
 <aside id="sidebar">
-<section class="grid" id="gameGrid">
-<!-- dynamically filled -->
-</section>
+<section class="grid" id="gameGrid"></section>
 </aside>
 
 <section id="gameFrameContainer">
@@ -164,75 +74,123 @@ section#gameFrameContainer iframe {
 </main>
 
 <footer style="text-align:center; padding:2rem 1rem; color:var(--muted);">
-&copy; <strong>LBS3 Bypass</strong> • xirussss
+&copy; <strong>LBS3 Bypass</strong> • Premium unblocked games hub
 </footer>
 
 <script>
 const gameGrid = document.getElementById('gameGrid');
 const search = document.getElementById('search');
+const categoryFilter = document.getElementById('categoryFilter');
 const frame = document.getElementById('gameFrame');
 const fsBtn = document.getElementById('fsBtn');
 const sidebar = document.getElementById('sidebar');
 const collapseBtn = document.getElementById('collapseBtn');
 
+let games = [];
 let cards = [];
+let recentlyPlayed = JSON.parse(localStorage.getItem('recentGames') || '[]');
 
+// Fetch games.json
 fetch('games.json')
   .then(res => res.json())
-  .then(games => {
-    games.forEach(game => {
-      const card = document.createElement('a');
-      card.className = 'card';
-      card.href = '#';
-      card.dataset.src = game.id;
+  .then(data => {
+    // Sort A-Z
+    games = data.sort((a,b)=> a.name.localeCompare(b.name));
+    populateCategories();
+    loadGames();
+    loadFromURL();
+  });
 
-      const img = document.createElement('img');
-      img.src = `thumbnails/${game.thumb}`;
-      img.alt = game.name;
+// Populate category filter
+function populateCategories(){
+  const categories = [...new Set(games.map(g => g.category).filter(Boolean))];
+  categories.forEach(cat=>{
+    const opt = document.createElement('option');
+    opt.value = cat;
+    opt.textContent = cat;
+    categoryFilter.appendChild(opt);
+  });
+}
 
-      const span = document.createElement('span');
-      span.textContent = game.name;
+// Load games
+function loadGames(filter='all', searchTerm=''){
+  gameGrid.innerHTML = '';
+  cards = [];
 
-      card.append(img, span);
-      gameGrid.appendChild(card);
+  games.forEach(game=>{
+    if(filter !== 'all' && game.category !== filter) return;
+    if(searchTerm && !game.name.toLowerCase().includes(searchTerm)) return;
 
-      card.addEventListener('click', e => {
-        e.preventDefault();
-        frame.src = game.id;
-        cards.forEach(c => c.style.borderColor = 'var(--border)');
-        card.style.borderColor = 'var(--accent)';
-      });
+    const card = document.createElement('a');
+    card.className='card';
+    card.href='#';
+    card.dataset.src=game.id;
 
-      cards.push(card);
+    const img=document.createElement('img');
+    img.src=`thumbnails/${game.thumb}`;
+    img.alt=game.name;
+
+    const span=document.createElement('span');
+    span.textContent=game.name;
+
+    card.append(img,span);
+    gameGrid.appendChild(card);
+
+    card.addEventListener('click',e=>{
+      e.preventDefault();
+      loadGame(game.id);
     });
+
+    cards.push(card);
   });
+}
 
-search.addEventListener('input', () => {
-  const q = search.value.toLowerCase();
-  cards.forEach(card => {
-    card.style.display =
-      card.querySelector('span').textContent.toLowerCase().includes(q)
-      ? 'flex'
-      : 'none';
-  });
+// Load a game into iframe
+function loadGame(id){
+  frame.src = id;
+
+  // Highlight selected
+  cards.forEach(c=> c.style.borderColor='var(--border)');
+  const card = cards.find(c=>c.dataset.src===id);
+  if(card) card.style.borderColor='var(--accent)';
+
+  // Save recently played
+  recentlyPlayed = recentlyPlayed.filter(g=>g!==id);
+  recentlyPlayed.unshift(id);
+  if(recentlyPlayed.length>10) recentlyPlayed.pop();
+  localStorage.setItem('recentGames',JSON.stringify(recentlyPlayed));
+
+  // Update URL
+  history.replaceState(null,'',`?game=${id}`);
+}
+
+// Search & filter
+search.addEventListener('input',()=>loadGames(categoryFilter.value, search.value.toLowerCase()));
+categoryFilter.addEventListener('change',()=>loadGames(categoryFilter.value, search.value.toLowerCase()));
+
+// Fullscreen
+fsBtn.addEventListener('click',()=>{
+  frame.requestFullscreen?.() || frame.webkitRequestFullscreen?.();
 });
 
-fsBtn.addEventListener('click', () => {
-  frame.requestFullscreen?.() ||
-  frame.webkitRequestFullscreen?.();
-});
+// Collapse sidebar
+collapseBtn.addEventListener('click',()=> sidebar.classList.toggle('collapsed'));
 
-collapseBtn.addEventListener('click', () => {
-  sidebar.classList.toggle('collapsed');
-});
+// Load game from URL
+function loadFromURL(){
+  const params = new URLSearchParams(window.location.search);
+  const gameId = params.get('game');
+  if(gameId) loadGame(gameId);
+  else if(recentlyPlayed[0]) loadGame(recentlyPlayed[0]);
+}
 
-document.addEventListener('keydown', e => {
-  if (e.key === 'F5') {
+// Prevent F5 reload
+document.addEventListener('keydown',e=>{
+  if(e.key==='F5'){
     e.preventDefault();
-    window.location.href = 'https://lbs3.salzburg.at/';
+    window.location.href='https://lbs3.salzburg.at/';
   }
 });
 </script>
-
 </body>
 </html>
