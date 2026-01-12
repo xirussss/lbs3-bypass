@@ -123,14 +123,14 @@ function populateCategories(){
   });
 }
 
-// Load games
-function loadGames(filter='all', searchTerm='') {
+// Load games with auto icon detection
+async function loadGames(filter='all', searchTerm='') {
   gameGrid.innerHTML = '';
   cards = [];
 
-  games.forEach(game => {
-    if(filter !== 'all' && game.category !== filter) return;
-    if(searchTerm && !game.name.toLowerCase().includes(searchTerm.toLowerCase())) return;
+  for (const game of games) {
+    if(filter !== 'all' && game.category !== filter) continue;
+    if(searchTerm && !game.name.toLowerCase().includes(searchTerm.toLowerCase())) continue;
 
     const card = document.createElement('a');
     card.className = 'card';
@@ -138,8 +138,22 @@ function loadGames(filter='all', searchTerm='') {
     card.dataset.src = game.id;
 
     const img = document.createElement('img');
-    img.src = game.thumb;  // online image
     img.alt = game.name;
+
+    // Auto-detect icon
+    try {
+      const res = await fetch(`${game.id}/index.html`);
+      if (res.ok) {
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const iconEl = doc.querySelector('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"]');
+        img.src = iconEl ? new URL(iconEl.getAttribute('href'), `${location.origin}/${game.id}/`).href : 'assets/default_icon.png';
+      } else {
+        img.src = 'assets/default_icon.png';
+      }
+    } catch {
+      img.src = 'assets/default_icon.png';
+    }
 
     const span = document.createElement('span');
     span.textContent = game.name;
@@ -153,9 +167,9 @@ function loadGames(filter='all', searchTerm='') {
     });
 
     cards.push(card);
-  });
+  }
 }
-
+  
 // Load a game into iframe
 function loadGame(id){
   frame.src = id;
