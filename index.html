@@ -6,7 +6,13 @@
 <title>LBS3 Bypass</title>
 <meta name="description" content="LBS3 Auf Flasche.">
 
+<!-- Base for GitHub Pages -->
+<base href="/lbs3-bypass/">
+
+<!-- Favicon -->
 <link rel="icon" href="assets/default_icon.png" type="image/png">
+
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -55,9 +61,9 @@ section#gameFrameContainer iframe { width:100%; height:80vh; border:0; border-ra
 <p>👻 xirussss</p>
 <div class="search-wrap">
   <input id="search" type="text" placeholder="Search games…">
-<select id="categoryFilter">
-  <option value="all">All Categories</option>
- </select>
+  <select id="categoryFilter">
+    <option value="all">All Categories</option>
+  </select>
 </div>
 </header>
 
@@ -137,7 +143,7 @@ async function loadGames(filter='all', searchTerm='') {
         const html = await res.text();
         const doc = new DOMParser().parseFromString(html, 'text/html');
         const iconEl = doc.querySelector('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"]');
-        img.src = iconEl ? new URL(iconEl.getAttribute('href'), `${location.origin}/${game.id}/`).href : 'assets/default_icon.png';
+        img.src = iconEl ? new URL(iconEl.getAttribute('href'), `${location.origin}/lbs3-bypass/${game.id}/`).href : 'assets/default_icon.png';
       } else {
         img.src = 'assets/default_icon.png';
       }
@@ -162,7 +168,7 @@ async function loadGames(filter='all', searchTerm='') {
 
 // Load a game into iframe
 function loadGame(id){
-  gameFrame.src = id;
+  gameFrame.src = `${id}/index.html`;
 
   cards.forEach(c=> c.style.borderColor='var(--border)');
   const card = cards.find(c=>c.dataset.src===id);
