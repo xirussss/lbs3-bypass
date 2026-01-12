@@ -6,6 +6,7 @@
 <title>LBS3 Bypass</title>
 <meta name="description" content="LBS3 Auf Flasche.">
 
+<link rel="icon" href="assets/default_icon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -56,17 +57,6 @@ section#gameFrameContainer iframe { width:100%; height:80vh; border:0; border-ra
   <input id="search" type="text" placeholder="Search games…">
 <select id="categoryFilter">
   <option value="all">All Categories</option>
-  <option value="Arcade">Arcade</option>
-  <option value="Puzzle">Puzzle</option>
-  <option value="Multiplayer">Multiplayer</option>
-  <option value="Rhythm">Rhythm</option>
-  <option value="RPG">RPG</option>
-  <option value="Racing">Racing</option>
-  <option value="Sports">Sports</option>
-  <option value="Simulation">Simulation</option>
-  <option value="Adventure">Adventure</option>
-  <option value="Strategy">Strategy</option>
-  <option value="Sandbox">Sandbox</option>
  </select>
 </div>
 </header>
@@ -85,14 +75,15 @@ section#gameFrameContainer iframe { width:100%; height:80vh; border:0; border-ra
 </main>
 
 <footer style="text-align:center; padding:2rem 1rem; color:var(--muted);">
-&copy; <strong></strong> xirussss
+&copy; xirussss
 </footer>
 
 <script>
+// DOM elements
 const gameGrid = document.getElementById('gameGrid');
 const search = document.getElementById('search');
 const categoryFilter = document.getElementById('categoryFilter');
-const frame = document.getElementById('gameFrame');
+const gameFrame = document.getElementById('gameFrame'); // renamed to avoid duplicate 'frame'
 const fsBtn = document.getElementById('fsBtn');
 const sidebar = document.getElementById('sidebar');
 const collapseBtn = document.getElementById('collapseBtn');
@@ -105,7 +96,6 @@ let recentlyPlayed = JSON.parse(localStorage.getItem('recentGames') || '[]');
 fetch('games.json')
   .then(res => res.json())
   .then(data => {
-    // Sort A-Z
     games = data.sort((a,b)=> a.name.localeCompare(b.name));
     populateCategories();
     loadGames();
@@ -140,7 +130,7 @@ async function loadGames(filter='all', searchTerm='') {
     const img = document.createElement('img');
     img.alt = game.name;
 
-    // Auto-detect icon
+    // Auto-detect icon from game folder
     try {
       const res = await fetch(`${game.id}/index.html`);
       if (res.ok) {
@@ -169,23 +159,20 @@ async function loadGames(filter='all', searchTerm='') {
     cards.push(card);
   }
 }
-  
+
 // Load a game into iframe
 function loadGame(id){
-  frame.src = id;
+  gameFrame.src = id;
 
-  // Highlight selected
   cards.forEach(c=> c.style.borderColor='var(--border)');
   const card = cards.find(c=>c.dataset.src===id);
   if(card) card.style.borderColor='var(--accent)';
 
-  // Save recently played
   recentlyPlayed = recentlyPlayed.filter(g=>g!==id);
   recentlyPlayed.unshift(id);
   if(recentlyPlayed.length>10) recentlyPlayed.pop();
   localStorage.setItem('recentGames',JSON.stringify(recentlyPlayed));
 
-  // Update URL
   history.replaceState(null,'',`?game=${id}`);
 }
 
@@ -196,37 +183,25 @@ categoryFilter.addEventListener('change',()=>loadGames(categoryFilter.value, sea
 // Fullscreen button
 fsBtn.addEventListener('click', async () => {
   const container = document.getElementById('gameFrameContainer');
-
-  // Enter fullscreen on container, not iframe
   if (container.requestFullscreen) await container.requestFullscreen();
   else if (container.webkitRequestFullscreen) await container.webkitRequestFullscreen();
-
-  // Resize iframe to fill container
-  frame.style.width = '100vw';
-  frame.style.height = '100vh';
-
-  // Focus iframe so keyboard works
-  frame.contentWindow?.focus?.();
-
-  // Optional: keyboard lock (Chrome only)
-  if (navigator.keyboard && navigator.keyboard.lock) {
-    try { await navigator.keyboard.lock(); } 
-    catch(e) { console.warn("Keyboard lock failed:", e); }
-  }
+  gameFrame.style.width = '100vw';
+  gameFrame.style.height = '100vh';
+  gameFrame.contentWindow?.focus?.();
 });
 
-// Resize iframe back when exiting fullscreen
+// Exit fullscreen resize
 document.addEventListener('fullscreenchange', () => {
   if (!document.fullscreenElement) {
-    frame.style.width = '100%';
-    frame.style.height = '80vh';
+    gameFrame.style.width = '100%';
+    gameFrame.style.height = '80vh';
   }
 });
 
 // Collapse sidebar
 collapseBtn.addEventListener('click',()=> sidebar.classList.toggle('collapsed'));
 
-// Load game from URL
+// Load game from URL or recent
 function loadFromURL(){
   const params = new URLSearchParams(window.location.search);
   const gameId = params.get('game');
